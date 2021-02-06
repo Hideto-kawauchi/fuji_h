@@ -4,15 +4,9 @@ import Link from 'next/link';
 const Index = () => {
   return (
     <div className="container">
-      <h1>Home</h1>
+      <h1>トップページ　患者</h1>
       <div style={{ height: '5rem' }}></div>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Link href="/patient">
-          <a>トップページ 患者</a>
-        </Link>
-        <Link href="/hospital">
-          <a>トップページ 病院</a>
-        </Link>
+      <div>
         <Link href="/interview/list">
           <a>Interview</a>
         </Link>
