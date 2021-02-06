@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import 'firebase/auth';
 import 'firebase/firestore';
 
 firebase.apps.length
@@ -13,6 +14,8 @@ firebase.apps.length
       measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
     });
 
-export const firestore = firebase.firestore();
-
 export const provider = new firebase.auth.GoogleAuthProvider();
+
+export const auth = firebase.auth();
+
+export const firestore = firebase.firestore();

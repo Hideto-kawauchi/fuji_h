@@ -2,19 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { firestore } from '@/lib/firebase';
-import { BASE } from '@/types/base';
+import { auth, firestore } from '@/lib/firebase';
+import { Base } from '@/types/base';
 
 const Index = () => {
   // router
   const { query } = useRouter();
-  const baseId = decodeURIComponent(query.baseId as string).slice(
-    0,
-    -1
-  );
+  const baseId = decodeURIComponent(query.baseId as string).slice(0, -1);
 
   // state
-  const [base, setBase] = useState<BASE>();
+  const [base, setBase] = useState<Base>();
 
   // init
   useEffect(() => {
@@ -23,13 +20,14 @@ const Index = () => {
         .filter((doc) => doc.id === baseId)
         .map((doc) => ({
           id: doc.id,
-          name: doc.data().name,
           gender: doc.data().gender,
-          age: doc.data().age,
-          tel: doc.data().tel,
-          date: doc.data().date ? doc.data().date : '',
+          birthDate: doc.data().birthDate ? doc.data().birthDate : '',
         }));
-      setBase(data[0]);
+      setBase({
+        ...data[0],
+        name: auth.currentUser?.displayName || '',
+        tel: auth.currentUser?.phoneNumber || '',
+      });
     });
   }, [baseId]);
 
@@ -43,50 +41,68 @@ const Index = () => {
         </Link>
       </div>
       <div style={{ height: '5rem' }}></div>
-      <div className="lists">
-                {baseList.map((base) => (
-
-                    <div className="base">
-                        <div className="element_wrap">
-                            <label>ID</label>
-                            <p className="element">{`${base.id}`}</p>
-                        </div>
-                        <div className="element_wrap">
-                            <label>名前</label>
-                            <p className="element">{`${base.name}`}</p>
-                        </div>
-                        <div className="element_wrap">
-                            <label>性別</label>
-                            <p className="element">{`${base.gender}`}</p>
-                        </div>
-                        <div className="element_wrap">
-                            <label>年齢</label>
-                            <p className="element">{`${base.age}`}</p>
-                        </div>
-                        <div className="element_wrap">
-                            <label>電話番号</label>
-                            <p className="element">{`${base.tel}`}</p>
-                        </div>
-                    </div>
-                ))}
+      <div className="base">
+        <div className="element_wrap">
+          <label>ID</label>
+          <input
+            type="text"
+            disabled
+            className="element"
+            value={baseId}
+          ></input>
         </div>
+        <div className="element_wrap">
+          <label>名前</label>
+          <input
+            type="text"
+            disabled
+            className="element"
+            value={base?.name || ''}
+          ></input>
+        </div>
+        <div className="element_wrap">
+          <label>性別</label>
+          <input
+            type="text"
+            disabled
+            className="element"
+            value={base?.gender || ''}
+          ></input>
+        </div>
+        <div className="element_wrap">
+          <label>年齢</label>
+          <input
+            type="text"
+            disabled
+            className="element"
+            value={base?.birthDate || ''}
+          ></input>
+        </div>
+        <div className="element_wrap">
+          <label>電話番号</label>
+          <input
+            type="text"
+            disabled
+            className="element"
+            value={base?.tel || ''}
+          ></input>
+        </div>
+      </div>
       <style jsx>{`
-        .list {
-            display: flex;
-            flex-direction: column;
+        .base {
+          display: flex;
+          flex-direction: column;
         }
 
-        .element-wrap{
-            float: left;
-            padding: 20px;
+        .element_wrap input {
+          margin: 20px;
         }
 
-        .element{
-            display: inline-block;
-            padding: 10px;
+        .element {
+          display: inline-block;
+          padding: 10px;
         }
-
-        `}</style>
+      `}</style>
     </div>
   );
 };
