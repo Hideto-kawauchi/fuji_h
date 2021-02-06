@@ -14,3 +14,5 @@ firebase.apps.length
     });
 
 export const firestore = firebase.firestore();
+
+export const provider = new firebase.auth.GoogleAuthProvider();
