@@ -28,6 +28,11 @@ const Index = () => {
         <Link href="/loginPatient">
           <a>loginPatient</a>
         </Link>
+        <div style={{ display: "flex", flexDirection: "column"}}></div>
+        <Link href="/basePatient/list">
+          <a>basePatient</a>
+        </Link>
+
       </div>
       <style jsx>{``}</style>
     </div>
