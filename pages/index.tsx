@@ -7,7 +7,7 @@ const Index = () => {
       <h1>Home</h1>
       <div style={{ height: '5rem' }}></div>
       <div>
-        <Link href="/interview">
+        <Link href="/interview/list">
           <a>Interview</a>
         </Link>
       </div>

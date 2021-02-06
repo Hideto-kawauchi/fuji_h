@@ -1,48 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { firestore } from '@/lib/firebase';
-
-type InterView = {
-  id: string;
-  name: string;
-  age: number;
-  temperature: string;
-  date: string;
-};
+import { InterView } from '@/types/interview';
 
 const Index = () => {
+  // router
+  const { query } = useRouter();
+  const interviewId = decodeURIComponent(query.interviewId as string).slice(
+    0,
+    -1
+  );
+
   // state
   const [interview, setInterview] = useState<InterView>();
-
-  const [name, setName] = useState('');
-  const [age, setAge] = useState(0);
-  const [temperature, setTemperature] = useState('');
 
   // init
   useEffect(() => {
     firestore.collection('interview').onSnapshot((collection) => {
       const data = collection.docs
-        .filter((doc) => doc.id === '')
+        .filter((doc) => doc.id === interviewId)
         .map((doc) => ({
           id: doc.id,
           name: doc.data().name,
           age: doc.data().age,
           temperature: doc.data().temperature,
-          date: doc.data().date.toDate(),
+          date: doc.data().date ? doc.data().date : '',
         }));
       setInterview(data[0]);
     });
-  }, []);
-
-  const onSave = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log({
-      name,
-      age,
-      temperature,
-    });
-  };
+  }, [interviewId]);
 
   return (
     <div className="container">
@@ -55,30 +43,28 @@ const Index = () => {
       </div>
       <div style={{ height: '5rem' }}></div>
       <div>
-        <form onSubmit={onSave}>
+        <form>
           <input
             type="text"
             name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            disabled
+            value={interview?.name || ''}
           />
           <br />
-          <input
-            type="number"
-            name="age"
-            value={age}
-            onChange={(e) => setAge(parseInt(e.target.value, 10))}
-          />
+          <input type="text" name="age" disabled value={interview?.age || ''} />
           <br />
           <input
             type="text"
             name="temperature"
-            value={temperature}
-            onChange={(e) => setTemperature(e.target.value)}
+            disabled
+            value={interview?.temperature || ''}
           />
-          <br />
-          <div style={{ height: '2.5rem' }}></div>
-          <button type="submit">送信</button>
+          <input
+            type="text"
+            name="date"
+            disabled
+            value={interview?.date || ''}
+          />
         </form>
       </div>
       <style jsx>{``}</style>
