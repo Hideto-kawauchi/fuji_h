@@ -17,3 +17,13 @@ export const initialInterView: InterView = {
   syoujou: '',
   cold: [],
 };
+
+export const initialInterView: InterView = {
+  id: '',
+  name: '',
+  age: 0,
+  temperature: '',
+  date: '',
+  syoujou: '',
+  cold: [],
+};
