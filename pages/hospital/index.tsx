@@ -4,14 +4,33 @@ import Link from 'next/link';
 const Index = () => {
   return (
     <div className="container">
-      <h1>トップページ 病院</h1>
+      <div className="object">oo病院様用 メニュー</div>
       <div style={{ height: '5rem' }}></div>
-      <div>
-        <Link href="/interview/list">
-          <a>Interview</a>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Link href="/kihon">
+          <button>基本情報</button>
+        </Link>
+        <Link href="/patient/reserve">
+          <button>本日の予約一覧</button>
+        </Link>
+        <Link href="/kako">
+          <button>過去の予約歴</button>
         </Link>
       </div>
-      <style jsx>{``}</style>
+
+      <style jsx>
+        {`
+          button {
+            background-color: #66a5ad;
+            color: white;
+          }
+
+          .object {
+            background-color: #c4dfe6;
+            color: white;
+          }
+        `}
+      </style>
     </div>
   );
 };

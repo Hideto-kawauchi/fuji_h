@@ -8,10 +8,10 @@ const Index = () => {
       <div style={{ height: '5rem' }}></div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Link href="/patient">
-          <a>トップページ 患者</a>
+          <a>マイページ 患者</a>
         </Link>
         <Link href="/hospital">
-          <a>トップページ 病院</a>
+          <a>マイページ 病院</a>
         </Link>
         <Link href="/interview/list">
           <a>Interview</a>
@@ -28,7 +28,7 @@ const Index = () => {
         <Link href="/loginPatient">
           <a>loginPatient</a>
         </Link>
-        <div style={{ display: "flex", flexDirection: "column"}}></div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}></div>
         <Link href="/basePatient/list">
           <a>basePatient</a>
         </Link>
