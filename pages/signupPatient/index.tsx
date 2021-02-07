@@ -1,5 +1,5 @@
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 /*// Docs: https://source.corp.google.com/piper///depot/google3/third_party/devsite/firebase/en/docs/auth/web/google-signin.md
 
@@ -70,34 +70,36 @@ function isUserEqual(googleUser, firebaseUser) {
 }*/
 
 const Index = () => {
-  var provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly')
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   firebase.auth().languageCode = 'it';
   provider.setCustomParameters({
-    'login_hint' : 'user@example.com'
+    login_hint: 'user@example.com',
   });
 
-  firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-    var credential = result.credential;
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      const credential = result.credential;
 
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential;
+      // ...
+    });
 };
 
 export default Index;
