@@ -81,7 +81,7 @@ const Index = () => {
         <div style={{ width: "53%"}}>
         <div className="pad">Q1. 体温を記入してください<br />
         {/* TODO: debug用 */}
-        <div>{interview.temperature}</div>
+        {/*<div>{interview.temperature}</div>*/}
 
         <input
           name="temperature"
@@ -93,7 +93,7 @@ const Index = () => {
         <p className="pad">Q2. 症状を教えてください<br />
         ＜かぜ症状＞<br />
         {/* TODO: debug用 */}
-        {interview.cold.map(x => <div  key={x}>{x}</div>)}
+        {/*interview.cold.map(x => <div  key={x}>{x}</div>)*/}
 
         ・熱がある<input name="fever" type="checkbox" onChange={handleCheckChange}></input>
         ・喉が痛い<input name="throatache" type="checkbox" onChange={handleCheckChange}></input>

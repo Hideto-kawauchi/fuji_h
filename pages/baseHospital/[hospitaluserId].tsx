@@ -56,7 +56,7 @@ const Index = () => {
       </div>
       <div style={{ height: '5rem' }}></div>
       <div className="button">
-        <Link href="/">
+        <Link href="/hospital">
           <a className="top_button">topへ</a>
         </Link>
       </div>

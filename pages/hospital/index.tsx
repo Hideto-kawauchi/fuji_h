@@ -1,13 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { auth } from '@/lib/firebase';
+
 const Index = () => {
+  if (!auth.currentUser) return null
   return (
     <div className="container">
       <div className="object">oo病院様用 メニュー</div>
       <div style={{ height: '5rem' }}></div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Link href="/kihon">
+        <Link href={`/baseHospital/${auth.currentUser?.uid}`}>
           <button>基本情報</button>
         </Link>
         <Link href="/patient/reserve">
