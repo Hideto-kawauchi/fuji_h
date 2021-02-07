@@ -13,7 +13,7 @@ const Index = () => {
         <Link href="/hospital">
           <a>マイページ 病院</a>
         </Link>
-        <Link href="/interview/list">
+        <Link href="/interview">
           <a>Interview</a>
         </Link>
         <div style={{ display: 'flex', flexDirection: 'column' }}></div>
