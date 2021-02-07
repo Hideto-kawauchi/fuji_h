@@ -4,12 +4,12 @@ import Link from 'next/link';
 const Index = () => {
   return (
     <div className="container">
-      <div className = "object">過去の診断情報 ＞カルテ選択</div>
+      <div className="object">過去の診断情報 ＞カルテ選択</div>
       <div style={{ height: '5rem' }}></div>
-      <div style={{ display: "flex", flexDirection: "column"}}>
-       <div className = "subject">来院歴一覧　カルテを選択してください</div>
-       <div className = "subject">日付/病院/カルテID</div>
-       <div style={{ height: '1rem' }}></div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="subject">来院歴一覧　カルテを選択してください</div>
+        <div className="subject">日付/病院/カルテID</div>
+        <div style={{ height: '1rem' }}></div>
         <Link href="sindanreki\ID1">
           <button>2019.7 / OO病院 / ID:1</button>
         </Link>
@@ -25,16 +25,20 @@ const Index = () => {
         </Link>
       </div>
       <style jsx>{`
-        .object{
-         background-color:#C4DFE6;color:white;
+        .object {
+          background-color: #c4dfe6;
+          color: white;
         }
-        .subject{
-         background-color:#66A5AD; color:white;text-align:center;
+        .subject {
+          background-color: #66a5ad;
+          color: white;
+          text-align: center;
         }
         button {
-          background-color: #B1D9D3; color:white;
+          background-color: #b1d9d3;
+          color: white;
         }
-        `}</style>
+      `}</style>
     </div>
   );
 };
