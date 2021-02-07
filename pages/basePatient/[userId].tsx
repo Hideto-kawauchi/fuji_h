@@ -72,6 +72,7 @@ const Index = () => {
       tel: patientUser?.tel || '',
       birthDate: patientUser?.birthDate || '',
     } as PatientUser);
+    console.log("更新が完了しました");
   };
 
   return (
@@ -136,7 +137,7 @@ const Index = () => {
       </div>
       <div style={{ height: '2.5rem' }}></div>
             <div className="button">
-                <a className="sub_button" onClick={addBase} href="/">登録</a>
+                <a className="sub_button" onClick={addBase}>登録</a>
             </div>
       <style jsx>{`
 

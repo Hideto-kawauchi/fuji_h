@@ -41,6 +41,7 @@ const Index = () => {
   }
 
   const addHospital = () => {
+    console.log("更新が完了しました");
     firestore.collection('hospitalUser').add({
       id: hospitaluserId,
       name: auth.currentUser?.displayName || '',
@@ -90,7 +91,7 @@ const Index = () => {
       </div>
       <div style={{ height: '5rem' }}></div>
             <div className="button">
-                <a className="sub_button" onClick={addHospital} href="/">登録</a>
+                <a className="sub_button" onClick={addHospital}>登録</a>
             </div>
       <style jsx>{`
         .title{

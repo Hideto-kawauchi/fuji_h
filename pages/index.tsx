@@ -21,7 +21,7 @@ const Index = () => {
           <a>signupDoctor</a>
         </Link>
         <div style={{ display: 'flex', flexDirection: 'column' }}></div>
-        <Link href="/loginDoctor">
+        <Link href="/loginHospital">
           <a>loginDoctor</a>
         </Link>
         <div style={{ display: 'flex', flexDirection: 'column' }}></div>
@@ -31,6 +31,10 @@ const Index = () => {
         <div style={{ display: "flex", flexDirection: "column"}}></div>
         <Link href="/basePatient/list">
           <a>basePatient</a>
+        </Link>
+        <div style={{ display: "flex", flexDirection: "column"}}></div>
+        <Link href="/baseHospital/list">
+          <a>baseHospital</a>
         </Link>
 
       </div>

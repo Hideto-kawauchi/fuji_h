@@ -28,20 +28,33 @@ const Index = () => {
 
   return (
     <div className="container">
-      <h1>loginPatient</h1>
+      <div className="title">
+        <h1>ログインページ(患者さん用)</h1>
+      </div>
       <div style={{ height: '5rem' }}></div>
-      <div>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
+      <div className="button">
+        <button className="login" onClick={handleLogin}>ログイン</button>
+        <p>※ログインはGoogleアカウントのみです</p>
       </div>
-      <div>
-        <button onClick={handleLogin}>login</button>
-      </div>
-      <div>
-        <button onClick={handleLogout}>logout</button>
-      </div>
-      <style jsx>{``}</style>
+      <style jsx>{`
+        .title{
+          padding: 10px 0px 10px 0px;
+          text-align: center;
+          background-color: yellowgreen;
+        }
+
+        .button{
+          text-align: center;
+        }
+
+        .login{
+          padding: 15px 40px;
+          margin : 10px;
+          background-color: #5dca88;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+        `}</style>
     </div>
   );
 };
