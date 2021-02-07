@@ -9,13 +9,13 @@ const Index = () => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div className="subject">病院一覧 病院を選択してください</div>
         <div style={{ height: '1rem' }}></div>
-        <Link href="/ahospital">
+        <Link href="/interview">
           <button>A病院</button>
         </Link>
-        <Link href="/bhospital">
+        <Link href="/interview">
           <button>B病院</button>
         </Link>
-        <Link href="/chospital">
+        <Link href="/interview">
           <button>C病院</button>
         </Link>
         <div style={{ height: '10rem' }}></div>
